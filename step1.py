@@ -1,59 +1,55 @@
-def test():
-    print("welcome!")
+def hello():
+    return 'hello! World'
 
 
-def test1(a,b):
-    print(a+b)
+import random
+def makeRandomNumber():
+    # 1~45까지 수중 랜덤으로 6개의 수를 생성해서 리스트에 삽입한 후 출력
+    # 하는 코드 작성 --> 중복처리 하시오
+    list = []
+    for _ in range(6):
+        rnd = random.randint(1,45)
+        list.append(rnd)
+        #print(rnd, end=" ")
+    print(list)
+    print(sorted(list))
+    print(list)
+    print(list.sort())
+    print(list)
     pass
 
 
-def controlStatement():
-    #1~10까지 반복문 작성
-    for i in range(1,11):
-        print(i, end="\t")
-        pass
-    print()
-    for letter in 'abcde':
-        print(letter, end="\t")
-    print()
-    for i in range(1,11):
-        if(i % 2 == 0):
-            print(i)
+def getLottoNumber():
+    mlist = []
+    while True:
+        rnd = random.randint(1,45)
+        if rnd not in mlist:
+            mlist.append(rnd)
             pass
-        pass
+        if len(mlist)==6:
+            break
+            pass
 
+    print(sorted(mlist))
+    pass
 
+import calendar
+def getMonthData():
+    date, lastDay = calendar.monthrange(2021,11)
+    print(date, lastDay)
     pass
 
 
-def viewCalendar():
-    # 8월 달력을 출력하는 코드 작성하세요
-    print("\t\t\t8월\t\t\t")
+def viewMonth(year,month):
+    space, lastDay = calendar.monthrange(year, month)
+    print("\t\t{0}년 {1}월\t\t".format(year,month))
     print("일\t월\t화\t수\t목\t금\t토")
-    for i in range(1,32):
+    for _ in range(space+1):
+        print(" ",end="\t")
+
+    for i in range(1,lastDay+1):
         print(i, end="\t")
-        #if i%7==0:
-        if i==7 or i==14 or i==21 or i==28:
+        if (space+1+i)%7==0:
             print()
         pass
     pass
-
-# 윤년 체크 2021년 2월 윤년여부를 확인하여 결과를 리턴하는 코드 작성
-def isLeapYear():
-    flag = False # 윤년이 아니다.
-    year = 2021
-    condition1 = year % 400 == 0
-    condition2 = year % 4 == 0 and year % 100 != 0
-    if condition1 or condition2:
-        flag = True
-    return flag
-
-
-
-
-
-
-
-
-
-
